@@ -1,0 +1,27 @@
+//Hello Riot, I'm Lawrence, and this is my program to calculate the most efficient program in the game. I hope you like it!
+
+NOTES:
+
+//written on ubuntu, compiled with g++ (see compile.txt), used jsoncpp library to parse json objects, included are jsoncpp.cpp and the necessary files for the library inside the "json" folder. 
+
+//The main program is called "spell_efficiency.cpp", and is a text-based user input program.
+
+//spells.cpp is pulled from lol-static-data-v1.2 of the API, only champion spells, and is what I used to parse the info. 
+
+//I interpreted "most efficient spell...given varying amounts of ability power, attack damage, and cooldown" to mean Damage per second of directly damaging nukes (Annie Q, Ahri W, Lux E) 
+
+//only spells that do direct damage (either in 1 nuke or split in parts like Diana W) were counted, so no passive of spells, no DOT spells were considered. Also, spells that get benefits from other spells like Anivia E on Frostbite debuff and Cassiopeia E on Poision debuff were calculated without these cases considered, only the singular spell itself
+
+//Parsed all the spells that did damage, anything without a ratio AND damage value is not added to the map, AKA, they had the word "Damage" in their label, but is not really a direct damaging spell
+
+//output.txt contains the information that is stored into a struct, outputted for clarity. There is a part in my code to do so, commeneted out.
+
+//Some cases where spells were parsed in because they had "Damage Reduced" label or otherwise, those spells are not considered with the user input.
+
+//adjusted the ordering of arrays in "effect" to match the labels in some spells 
+
+//ammo spells used their recharge time as cooldown
+
+//resource usage was taken into consideration, adjusting the cooldown of spammable spells like Kog'Maw's ult and Akali's Cresecent Slash by factoring in their max resource amount (mana/energy) to give an average use case of the spell
+
+//the user interface is not optimal, but I submitted it as is due to time (food poisoning OP). Still need to make the exit condition not print out extra lines and cut down on repeated code. Apologies!

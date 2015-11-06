@@ -1,0 +1,1 @@
+g++ -g spell_efficiency.cpp jsoncpp.cpp -o spell_efficiency -std=c++0x
